@@ -1,0 +1,4 @@
+Employees are entitled to 20 annual leave days per year.
+Sick leave is 10 days per year.
+Casual leave is 7 days per year.
+Unused leave cannot be carried forward beyond one year.

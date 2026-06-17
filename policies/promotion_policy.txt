@@ -1,0 +1,3 @@
+Employees are eligible for promotion after 2 years of continuous service.
+Performance rating must be at least "Meets Expectations".
+Manager recommendation is required.

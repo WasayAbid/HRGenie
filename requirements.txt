@@ -1,0 +1,10 @@
+streamlit
+google-generativeai
+chromadb
+scikit-learn
+pandas
+pdfplumber
+docx2txt
+fpdf2
+python-dotenv
+joblib

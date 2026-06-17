@@ -1,0 +1,1 @@
+def resume_extraction_prompt(text):     return f""" You are an HR assistant.  Extract structured information from this resume.  Return ONLY valid JSON in this format:  {{   "name": "",   "email": "",   "skills": [],   "experience_years": 0,   "education": "" }}  Resume: {text} """

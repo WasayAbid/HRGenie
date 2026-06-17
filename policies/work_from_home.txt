@@ -1,0 +1,3 @@
+Employees may work from home up to 2 days per week.
+WFH must be approved by the manager.
+Critical team meetings require physical presence.
