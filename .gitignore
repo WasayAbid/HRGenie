@@ -1,5 +1,29 @@
+# Environment
 .env
-.venv/
+.env.local
+.env.*.local
+
+# Python
+venv/
 __pycache__/
-chroma_db/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Database & ML artifacts
 *.db
+chroma_db/
+*.joblib
+
+# Next.js
+hrgenie-next/.next/
+hrgenie-next/node_modules/
+hrgenie-next/.env.local
+
+# Misc
+.DS_Store
+Thumbs.db
+*.log

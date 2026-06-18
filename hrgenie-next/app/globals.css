@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+
+html {
+  background-color: #09090B;
+  color: #fafafa;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'cv02','cv03','cv04','cv11','tnum';
+}
+
+::selection { background: #4338ca; color: #fff; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #09090b; }
+::-webkit-scrollbar-thumb { background: #27272a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+/* Gradient border card — indigo edge on hover */
+.glow-card {
+  position: relative;
+  background: #111113;
+  border-radius: 14px;
+  border: 1px solid #27272A;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.glow-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.35) 0%, transparent 50%, transparent 100%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.glow-card:hover {
+  border-color: #3f3f46;
+  box-shadow: 0 0 28px rgba(99,102,241,0.06);
+}
+
+.glow-card:hover::before {
+  opacity: 1;
+}
+
+/* Table row hover accent */
+.table-row-hover:hover {
+  background: rgba(99,102,241,0.03);
+  border-left: 2px solid rgba(99,102,241,0.4) !important;
+  padding-left: calc(1.25rem - 2px) !important;
+}
+
+/* Input glow focus */
+.input-field:focus {
+  border-color: rgba(99,102,241,0.6) !important;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+}
+
+/* Shimmer keyframe */
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: none;
+}
+
+.btn-shimmer:hover::after {
+  animation: shimmer 0.55s ease forwards;
+}

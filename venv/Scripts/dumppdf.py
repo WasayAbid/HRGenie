@@ -1,4 +1,4 @@
-#!G:\AI_HR_InsightEngine\venv\Scripts\python.exe
+#!F:\Uni Work\Work\Projects\AI_HR_InsightEngine\venv\Scripts\python.exe
 """Extract pdf structure in XML format"""
 
 import logging
@@ -201,7 +201,7 @@ def dumpoutline(
             outfp.write("</outlines>\n")
         except PDFNoOutlines:
             pass
-        parser.close()
+        parser.flush()
 
 
 LITERAL_FILESPEC = LIT("Filespec")

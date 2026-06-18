@@ -1,4 +1,4 @@
-#!G:\AI_HR_InsightEngine\venv\Scripts\python.exe
+#!F:\Uni Work\Work\Projects\AI_HR_InsightEngine\venv\Scripts\python.exe
 """A command line tool for extracting text and images from PDF and
 output it to plain text, html, xml or tags.
 """

@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=G:\AI_HR_InsightEngine\venv
+set VIRTUAL_ENV=F:\Uni Work\Work\Projects\AI_HR_InsightEngine\venv
 
 if not defined PROMPT set PROMPT=$P$G
 

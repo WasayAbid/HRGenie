@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 import pandas as pd
 import joblib
 import chromadb
@@ -126,6 +127,53 @@ Question: {query}
         "answer": answer,
         "sources": results["metadatas"]
     }
+
+# =========================================
+# 3b. CHATBOT STREAMING
+# =========================================
+
+@app.post("/chat/stream")
+def chat_stream(data: dict):
+    from utils.gemini_client import client
+
+    query = data.get("query", "")
+
+    # Only do RAG if policies are indexed — avoids embedding model download delay
+    context = ""
+    if collection.count() > 0:
+        try:
+            results = collection.query(query_texts=[query], n_results=3)
+            context = "\n".join(results["documents"][0])
+        except Exception:
+            pass
+
+    if context:
+        prompt = f"""You are HRGenie, an AI HR Assistant.
+Answer clearly using the HR policy context below.
+Format using markdown: **bold**, bullet points, headers where appropriate.
+
+Context:
+{context}
+
+Question: {query}
+"""
+    else:
+        prompt = f"""You are HRGenie, an AI HR Assistant.
+Answer the HR question clearly and professionally.
+Format using markdown: **bold**, bullet points, headers where appropriate.
+
+Question: {query}
+"""
+
+    def generate():
+        for chunk in client.models.generate_content_stream(
+            model="gemini-2.5-flash-lite",
+            contents=prompt
+        ):
+            if chunk.text:
+                yield chunk.text
+
+    return StreamingResponse(generate(), media_type="text/plain", headers={"X-Accel-Buffering": "no"})
 
 # =========================================
 # 4. CIO REPORTING ENGINE

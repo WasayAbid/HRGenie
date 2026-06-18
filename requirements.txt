@@ -1,5 +1,7 @@
 streamlit
-google-generativeai
+fastapi
+uvicorn
+google-genai
 chromadb
 scikit-learn
 pandas
@@ -8,3 +10,6 @@ docx2txt
 fpdf2
 python-dotenv
 joblib
+speechrecognition
+pyttsx3
+pyaudio
