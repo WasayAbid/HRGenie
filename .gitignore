@@ -13,9 +13,7 @@ __pycache__/
 dist/
 build/
 
-# Database & ML artifacts
-*.db
-chroma_db/
+# ML artifacts
 *.joblib
 
 # Next.js
